@@ -21,14 +21,38 @@
 
             console.log("Received message:", config);
 
-            if (config.materialVariant) {
-                modelViewer.variantName = config.materialVariant;
-                console.log("Material variant set to:", config.materialVariant);
+            // Apply configuration options
+            if (config.OuterFrame) {
+                // Assuming OuterFrame affects the frame color
+                modelViewer.materialVariant = config.OuterFrame;
+                console.log("Frame color set to:", config.OuterFrame);
             }
-            if (config.handle) {
-                modelViewer.variantName = config.handle;
-                console.log("Handle variant set to:", config.handle);
+
+            if (config.WindowFrame) {
+                modelViewer.materialVariant = config.WindowFrame;
+                console.log("Window frame color set to:", config.WindowFrame);
             }
+
+            if (config.Sill) {
+                modelViewer.materialVariant = config.Sill;
+                console.log("Sill color set to:", config.Sill);
+            }
+
+            if (config.Handle) {
+                modelViewer.materialVariant = config.Handle;
+                console.log("Handle color set to:", config.Handle);
+            }
+
+            if (config.Box018) {
+                modelViewer.materialVariant = config.Box018;
+                console.log("Glass color set to:", config.Box018);
+            }
+
+            if (config.Vent) {
+                // Assuming Vent is a boolean, handle it accordingly
+                console.log("Vent:", config.Vent);
+            }
+
             if (config.animation) {
                 modelViewer.animationName = config.animation;
                 console.log("Animation set to:", config.animation);
