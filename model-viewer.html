@@ -22,38 +22,38 @@
             console.log("Received message:", config);
 
             // Apply configuration options
-            if (config.OuterFrame) {
-                // Assuming OuterFrame affects the frame color
-                modelViewer.materialVariant = config.OuterFrame;
-                console.log("Frame color set to:", config.OuterFrame);
-            }
-
-            if (config.WindowFrame) {
-                modelViewer.materialVariant = config.WindowFrame;
-                console.log("Window frame color set to:", config.WindowFrame);
-            }
-
-            if (config.Sill) {
-                modelViewer.materialVariant = config.Sill;
-                console.log("Sill color set to:", config.Sill);
+            if (config.OuterFrame || config.WindowFrame || config.Sill) {
+                // Handle frame color
+                const colors = [config.OuterFrame, config.WindowFrame, config.Sill];
+                colors.forEach(color => {
+                    if (color) {
+                        modelViewer.materialVariant = color;
+                        console.log("Frame color set to:", color);
+                    }
+                });
             }
 
             if (config.Handle) {
+                // Handle handle color
                 modelViewer.materialVariant = config.Handle;
                 console.log("Handle color set to:", config.Handle);
             }
 
             if (config.Box018) {
+                // Handle glass color
                 modelViewer.materialVariant = config.Box018;
                 console.log("Glass color set to:", config.Box018);
             }
 
             if (config.Vent) {
-                // Assuming Vent is a boolean, handle it accordingly
+                // Handle trickel vent
                 console.log("Vent:", config.Vent);
+                // Assuming Vent control
+                // Implement specific logic if needed
             }
 
             if (config.animation) {
+                // Handle animations
                 modelViewer.animationName = config.animation;
                 console.log("Animation set to:", config.animation);
             }
