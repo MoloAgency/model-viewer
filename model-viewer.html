@@ -21,38 +21,32 @@
 
             console.log("Received message:", config);
 
-            // Function to set material variant for a specific part
-            function setMaterialVariant(part, variant) {
-                if (modelViewer.materials) {
-                    const material = modelViewer.materials.find(m => m.name === part);
-                    if (material) {
-                        material.variant = variant;
-                        console.log(`${part} material variant set to:`, variant);
-                    }
-                }
-            }
-
+            // Simple update for material variants
             if (config.Handle) {
-                materialVariant('Handle', config.Handle);
+                modelViewer.setAttribute('handle-variant', config.Handle);
+                console.log("Handle variant set to:", config.Handle);
             }
             if (config.OuterFrame) {
-                materialVariant('OuterFrame', config.OuterFrame);
+                modelViewer.setAttribute('outer-frame-variant', config.OuterFrame);
+                console.log("OuterFrame variant set to:", config.OuterFrame);
             }
             if (config.Sill) {
-                materialVariant('Sill', config.Sill);
+                modelViewer.setAttribute('sill-variant', config.Sill);
+                console.log("Sill variant set to:", config.Sill);
             }
             if (config.WindowFrame) {
-                materialVariant('WindowFrame', config.WindowFrame);
+                modelViewer.setAttribute('window-frame-variant', config.WindowFrame);
+                console.log("WindowFrame variant set to:", config.WindowFrame);
             }
             if (config.Box018) {
-                materialVariant('Box018', config.Box018);
+                modelViewer.setAttribute('box018-variant', config.Box018);
+                console.log("Box018 variant set to:", config.Box018);
             }
             if (config.animation) {
-                modelViewer.animationName = config.animation;
+                modelViewer.setAttribute('animation-name', config.animation);
                 console.log("Animation set to:", config.animation);
             }
             if (config.Vent) {
-                // Assuming 'Vent' control is handled similarly
                 modelViewer.setAttribute('trickel-vent', config.Vent);
                 console.log("Trickel vent set to:", config.Vent);
             }
