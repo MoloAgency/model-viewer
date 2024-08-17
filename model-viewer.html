@@ -21,25 +21,32 @@
 
             console.log("Received message:", config);
 
-            if (config.materialVariant) {
-                modelViewer.materialVariantName = config.materialVariant;
-                console.log("Material variant set to:", config.materialVariant);
+            // Update material variants based on received configuration
+            Object.keys(config).forEach(function(key) {
+                const value = config[key];
+                modelViewer.model.materials.forEach(material => {
+                    if (material.name === key) {
+                        material.variantName = value;
+                        console.log(`Set ${key} to variant ${value}`);
+                    }
+                });
+            });
+
+            // Handle animations
+            if (config.Open_Left) {
+                modelViewer.animationName = config.Open_Left;
+                console.log("Animation set to:", config.Open_Left);
             }
-            if (config.frameColour) {
-                modelViewer.frameColour = config.frameColour;
-                console.log("Frame color set to:", config.frameColour);
+
+            if (config.Open_Top) {
+                modelViewer.animationName = config.Open_Top;
+                console.log("Animation set to:", config.Open_Top);
             }
-            if (config.glassVariation) {
-                modelViewer.glassVariation = config.glassVariation;
-                console.log("Glass variation set to:", config.glassVariation);
-            }
-            if (config.vent) {
-                modelViewer.vent = config.vent;
-                console.log("Vent set to:", config.vent);
-            }
-            if (config.animation) {
-                modelViewer.animationName = config.animation;
-                console.log("Animation set to:", config.animation);
+
+            // Handle trickle vent
+            if (config.Vent) {
+                modelViewer.variantName = config.Vent;
+                console.log("Vent set to:", config.Vent);
             }
         });
     </script>
