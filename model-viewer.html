@@ -21,32 +21,9 @@
 
             console.log("Received message:", config);
 
-            // Update material variants based on received configuration
-            Object.keys(config).forEach(function(key) {
-                const value = config[key];
-                modelViewer.model.materials.forEach(material => {
-                    if (material.name === key) {
-                        material.variantName = value;
-                        console.log(`Set ${key} to variant ${value}`);
-                    }
-                });
-            });
-
-            // Handle animations
-            if (config.Open_Left) {
-                modelViewer.animationName = config.Open_Left;
-                console.log("Animation set to:", config.Open_Left);
-            }
-
-            if (config.Open_Top) {
-                modelViewer.animationName = config.Open_Top;
-                console.log("Animation set to:", config.Open_Top);
-            }
-
-            // Handle trickle vent
-            if (config.Vent) {
-                modelViewer.variantName = config.Vent;
-                console.log("Vent set to:", config.Vent);
+            if (config.Handle) {
+                modelViewer.materialVariant = config.Handle;
+                console.log("Handle variant set to:", config.Handle);
             }
         });
     </script>
