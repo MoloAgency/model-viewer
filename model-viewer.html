@@ -18,12 +18,20 @@
         window.addEventListener('message', function(event) {
             const config = event.data;
             const modelViewer = document.getElementById('myModel');
+            const materials = modelViewer.shadowRoot.querySelectorAll('model-viewer-material');
 
             console.log("Received message:", config);
 
             Object.keys(config).forEach(key => {
-                modelViewer.materialVariant = config[key];
-                console.log(`Updated ${key} to ${config[key]}`);
+                const materialName = config[key];
+                console.log(`Applying material: ${materialName} to ${key}`);
+
+                materials.forEach(material => {
+                    if (material.name.includes(key)) {
+                        material.setAttribute('src', materialName);
+                        console.log(`Updated ${key} with ${materialName}`);
+                    }
+                });
             });
         });
     </script>
