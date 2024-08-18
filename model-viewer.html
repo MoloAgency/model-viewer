@@ -8,8 +8,8 @@
 </head>
 <body>
     <!-- Model Viewer Element -->
-    <model-viewer id="myModel" style="width: 100%; height: 500px;"
-        src="https://moloagency.github.io/3dmodels-glassopenings/Style%201%20Test.glb"
+    <model-viewer id="myModel" style="width: 100%; height: 500px;" 
+        src="https://moloagency.github.io/3dmodels-glassopenings/Style%201%20Test.glb" 
         auto-rotate camera-controls>
     </model-viewer>
 
@@ -21,34 +21,28 @@
 
             console.log("Received message:", config);
 
-            // Apply configuration options
-            if (config.Handle) {
-                modelViewer.setAttribute('handle-variant', config.Handle);
-                console.log("Handle variant set to:", config.Handle);
+            // Apply frame color
+            if (config.frameColor) {
+                modelViewer.materialVariant = config.frameColor;
+                console.log("Frame material set to:", config.frameColor);
             }
-            if (config.OuterFrame) {
-                modelViewer.setAttribute('outer-frame-variant', config.OuterFrame);
-                console.log("OuterFrame variant set to:", config.OuterFrame);
+
+            // Apply sill color
+            if (config.sillColor) {
+                modelViewer.materialVariant = config.sillColor;
+                console.log("Sill material set to:", config.sillColor);
             }
-            if (config.Sill) {
-                modelViewer.setAttribute('sill-variant', config.Sill);
-                console.log("Sill variant set to:", config.Sill);
+
+            // Apply handle color
+            if (config.handleColor) {
+                modelViewer.materialVariant = config.handleColor;
+                console.log("Handle material set to:", config.handleColor);
             }
-            if (config.WindowFrame) {
-                modelViewer.setAttribute('window-frame-variant', config.WindowFrame);
-                console.log("WindowFrame variant set to:", config.WindowFrame);
-            }
-            if (config.Box018) {
-                modelViewer.setAttribute('box018-variant', config.Box018);
-                console.log("Box018 variant set to:", config.Box018);
-            }
-            if (config.animation) {
-                modelViewer.setAttribute('animation-name', config.animation);
-                console.log("Animation set to:", config.animation);
-            }
-            if (config.Vent) {
-                modelViewer.setAttribute('trickel-vent', config.Vent);
-                console.log("Trickel vent set to:", config.Vent);
+
+            // Apply glass type
+            if (config.glassType) {
+                modelViewer.materialVariant = config.glassType;
+                console.log("Glass material set to:", config.glassType);
             }
         });
     </script>
