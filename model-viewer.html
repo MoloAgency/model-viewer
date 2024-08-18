@@ -21,28 +21,25 @@
 
             console.log("Received message:", config);
 
-            // Apply frame color
-            if (config.frameColor) {
-                modelViewer.materialVariant = config.frameColor;
-                console.log("Frame material set to:", config.frameColor);
+            if (config.OuterFrame) {
+                modelViewer.setAttribute('variant-name', config.OuterFrame);
+                console.log("OuterFrame variant set to:", config.OuterFrame);
             }
-
-            // Apply sill color
-            if (config.sillColor) {
-                modelViewer.materialVariant = config.sillColor;
-                console.log("Sill material set to:", config.sillColor);
+            if (config.WindowFrame) {
+                modelViewer.setAttribute('variant-name', config.WindowFrame);
+                console.log("WindowFrame variant set to:", config.WindowFrame);
             }
-
-            // Apply handle color
-            if (config.handleColor) {
-                modelViewer.materialVariant = config.handleColor;
-                console.log("Handle material set to:", config.handleColor);
+            if (config.Sill) {
+                modelViewer.setAttribute('variant-name', config.Sill);
+                console.log("Sill variant set to:", config.Sill);
             }
-
-            // Apply glass type
-            if (config.glassType) {
-                modelViewer.materialVariant = config.glassType;
-                console.log("Glass material set to:", config.glassType);
+            if (config.Handle) {
+                modelViewer.setAttribute('variant-name', config.Handle);
+                console.log("Handle variant set to:", config.Handle);
+            }
+            if (config.Box018) {
+                modelViewer.setAttribute('variant-name', config.Box018);
+                console.log("Glass variant set to:", config.Box018);
             }
         });
     </script>
