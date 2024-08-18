@@ -21,26 +21,10 @@
 
             console.log("Received message:", config);
 
-            if (config.OuterFrame) {
-                modelViewer.setAttribute('variant-name', config.OuterFrame);
-                console.log("OuterFrame variant set to:", config.OuterFrame);
-            }
-            if (config.WindowFrame) {
-                modelViewer.setAttribute('variant-name', config.WindowFrame);
-                console.log("WindowFrame variant set to:", config.WindowFrame);
-            }
-            if (config.Sill) {
-                modelViewer.setAttribute('variant-name', config.Sill);
-                console.log("Sill variant set to:", config.Sill);
-            }
-            if (config.Handle) {
-                modelViewer.setAttribute('variant-name', config.Handle);
-                console.log("Handle variant set to:", config.Handle);
-            }
-            if (config.Box018) {
-                modelViewer.setAttribute('variant-name', config.Box018);
-                console.log("Glass variant set to:", config.Box018);
-            }
+            Object.keys(config).forEach(key => {
+                modelViewer.materialVariant = config[key];
+                console.log(`Updated ${key} to ${config[key]}`);
+            });
         });
     </script>
 </body>
